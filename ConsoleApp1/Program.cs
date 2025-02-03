@@ -1,6 +1,4 @@
-﻿// Application Programming .NET Programming with C# by Abdullahi Tijjani
-// Example file for manipulating string content
-
+﻿// See https://aka.ms/new-console-template for more information
 string str1 = "The quick brown fox jumps over the lazy dog.";
 string str2 = "This is a string";
 string str3 = "THIS is a STRING";
@@ -32,20 +30,6 @@ Console.WriteLine(outstr);
 outstr = String.Join("---", strs);
 Console.WriteLine(outstr);
 
-// TODO: String Comparison
-bool isEqual = str2.Equals(str3);
-
-// Equals just returns a regular Boolean
-// bool isEqual = str2.Equals(str3);
-// Console.WriteLine($"{isEqual}");
-
-// Compare will perform an ordinal comparison and return:
-// < 0 : first string comes before second in sort order
-// 0 : first and second strings are same position in sort order
-// > 0 : first string comes after the second in sort order
-int result = String.Compare(str2, "this is a string");
-Console.WriteLine($"{result}");
-
 // TODO: Replacing content
-string outstr1 = str1.Replace("fox", "cat");
+string outstr1 = str1.Replace("Fox", "cat");
 Console.WriteLine($"{outstr1}");
