@@ -1,35 +1,29 @@
-﻿// See https://aka.ms/new-console-template for more information
-string str1 = "The quick brown fox jumps over the lazy dog.";
-string str2 = "This is a string";
-string str3 = "THIS is a STRING";
-string[] strs = {"one", "two", "three", "four"};
+﻿// Application Programming .NET Programming with C# by Abdullahi Tijjani
+// Example file for searching string content
 
-// TODO: Length of a string 
-Console.WriteLine(str1.Length);
+string teststr = "The quick brown Fox jumps over the lazy Dog";
 
-// TODO: Access individual characters
-Console.WriteLine(str1[14]);
+// TODO: Contains determines whether a string contains certain content
+Console.WriteLine($"{teststr.Contains("fox")}");
+Console.WriteLine($"{teststr.Contains("fox", StringComparison.CurrentCultureIgnoreCase)}");
 
-// TODO: Iterate over a string like any other sequence of values
-foreach (char ch in str1) {
-  Console.Write(ch);
-  if (ch == 'b') {
-    Console.WriteLine();
-    break;
-  }
-}
+// TODO: StartsWith and EndsWith determine if a string starts 
+// or ends with a given test string
+Console.WriteLine($"{teststr.StartsWith("the")}");
+Console.WriteLine($"{teststr.StartsWith("the", StringComparison.CurrentCultureIgnoreCase)}");
 
-// TODO: String Concatenation         
-string outstr;
-outstr = String.Concat(strs);
+Console.WriteLine($"{teststr.StartsWith("dog")}");
+Console.WriteLine($"{teststr.StartsWith("dog", StringComparison.CurrentCultureIgnoreCase)}");
 
+// TODO: IndexOf, LastIndexOf finds the index of a substring
+Console.WriteLine($"{teststr.IndexOf("the")}");
+Console.WriteLine($"{teststr.IndexOf("the", StringComparison.CurrentCultureIgnoreCase)}");
+Console.WriteLine($"{teststr.LastIndexOf("the")}");
+// TODO: Determining empty, null, or whitespace
+string str1 = null;
+string str2 = "   ";
+string str3 = String.Empty;
 
-// TODO: Joining strings together with Join
-outstr = String.Join('.', strs);
-Console.WriteLine(outstr);
-outstr = String.Join("---", strs);
-Console.WriteLine(outstr);
-
-// TODO: Replacing content
-string outstr1 = str1.Replace("Fox", "cat");
-Console.WriteLine($"{outstr1}");
+Console.WriteLine($"{String.IsNullOrEmpty(str1)}");
+Console.WriteLine($"{String.IsNullOrWhiteSpace(str2)}");
+Console.WriteLine($"{String.IsNullOrEmpty(str3)}");
