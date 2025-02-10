@@ -1,29 +1,42 @@
-﻿// Application Programming .NET Programming with C# by Abdullahi Tijjani
-// Example file for searching string content
+﻿while (true)
+{
+    Console.WriteLine("Enter a date (format: MM/dd/yyyy) or type 'exit' to quit:");
+    string input = Console.ReadLine();
 
-string teststr = "The quick brown Fox jumps over the lazy Dog";
+    if (input.ToLower() == "exit")
+    {
+        Console.WriteLine("Goodbye!");
+        break;
+    }
+    if (DateTime.TryParse(input, out DateTime enteredDate))
+    {
+        // Get the current date and time
+        DateTime currentDate = DateTime.Today;
 
-// TODO: Contains determines whether a string contains certain content
-Console.WriteLine($"{teststr.Contains("fox")}");
-Console.WriteLine($"{teststr.Contains("fox", StringComparison.CurrentCultureIgnoreCase)}");
+        // Compare the entered date with the current date
+        if (enteredDate < currentDate)
+        {
 
-// TODO: StartsWith and EndsWith determine if a string starts 
-// or ends with a given test string
-Console.WriteLine($"{teststr.StartsWith("the")}");
-Console.WriteLine($"{teststr.StartsWith("the", StringComparison.CurrentCultureIgnoreCase)}");
+            TimeSpan daysPassed = currentDate - enteredDate;
+            Console.WriteLine($"{daysPassed.Days} days have passed since {enteredDate.ToShortDateString()}.");
+        }
+        else if (enteredDate > currentDate)
+        {
 
-Console.WriteLine($"{teststr.StartsWith("dog")}");
-Console.WriteLine($"{teststr.StartsWith("dog", StringComparison.CurrentCultureIgnoreCase)}");
+            TimeSpan daysRemaining = enteredDate - currentDate;
+            Console.WriteLine($"{daysRemaining.Days} days remain until {enteredDate.ToShortDateString()}.");
+        }
+        else
+        {
 
-// TODO: IndexOf, LastIndexOf finds the index of a substring
-Console.WriteLine($"{teststr.IndexOf("the")}");
-Console.WriteLine($"{teststr.IndexOf("the", StringComparison.CurrentCultureIgnoreCase)}");
-Console.WriteLine($"{teststr.LastIndexOf("the")}");
-// TODO: Determining empty, null, or whitespace
-string str1 = null;
-string str2 = "   ";
-string str3 = String.Empty;
+            Console.WriteLine("The entered date is today!");
+        }
+    }
+    else
+    {
+        // Handle invalid date inputs
+        Console.WriteLine("Invalid date format. Please enter a valid date (format: MM/dd/yyyy).");
+    }
 
-Console.WriteLine($"{String.IsNullOrEmpty(str1)}");
-Console.WriteLine($"{String.IsNullOrWhiteSpace(str2)}");
-Console.WriteLine($"{String.IsNullOrEmpty(str3)}");
+    Console.WriteLine();
+}
